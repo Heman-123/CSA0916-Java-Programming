@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Lost & Found System - Applet Container</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #38bdf8;
+            margin-top: 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+        .badge-co4 { background: #0284c7; color: white; }
+        .badge-co5 { background: #059669; color: white; }
+        .badge-sdg { background: #d97706; color: white; }
+        .applet-wrapper {
+            margin: 20px 0;
+            border: 2px dashed #475569;
+            border-radius: 8px;
+            padding: 10px;
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+        }
+        .info-card {
+            background: #334155;
+            border-left: 4px solid #38bdf8;
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        pre {
+            background: #090d16;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #a7f3d0;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Smart Campus Lost & Found and Asset Recovery System</h1>
+        <div>
+            <span class="badge badge-co4">CO4: AWT GUI & Applet</span>
+            <span class="badge badge-co5">CO5: JDBC, Hashing & I/O</span>
+            <span class="badge badge-sdg">SDG 4, 11, 12</span>
+        </div>
+
+        <div class="info-card">
+            <strong>Applet Container Execution:</strong><br>
+            This page hosts the <code>SmartCampusApplet</code> demonstrating the standard Java Applet Lifecycle (<code>init()</code>, <code>start()</code>, <code>paint()</code>, <code>stop()</code>, <code>destroy()</code>) integrated with AWT Delegation Event Model, SHA-256 Hashing, and SQLite persistence.
+        </div>
+
+        <div class="applet-wrapper">
+            <!-- Standard Java Applet Tag Definition -->
+            <applet code="com.campus.lostfound.gui.SmartCampusApplet.class"
+                    archive="sqlite-jdbc-3.45.1.0.jar"
+                    codebase="./bin"
+                    width="960"
+                    height="620">
+                <param name="campusName" value="University Central Smart Campus">
+                <param name="academicYear" value="2026-2027">
+                <div style="padding: 40px; text-align: center; color: #cbd5e1;">
+                    <h3>Applet Viewer Execution Required</h3>
+                    <p>Modern web browsers do not run direct NPAPI Java Applets natively. To run this applet directly, execute:</p>
+                    <pre>appletviewer applet.html</pre>
+                    <p>Or run the standalone desktop GUI application:</p>
+                    <pre>run.bat</pre>
+                </div>
+            </applet>
+        </div>
+
+        <h3>Command Line Instructions</h3>
+        <p>To compile and execute this system:</p>
+        <pre># 1. Compile all Java sources
+javac -d bin -cp ".;sqlite-jdbc-3.45.1.0.jar" src/com/campus/lostfound/*/*.java
+
+# 2. Run Desktop GUI (AWT Frame)
+java -cp "bin;sqlite-jdbc-3.45.1.0.jar" com.campus.lostfound.app.Main
+
+# 3. Run Applet container (Appletviewer)
+appletviewer applet.html
+
+# 4. Run Automated Test Suite
+java -cp "bin;sqlite-jdbc-3.45.1.0.jar" com.campus.lostfound.test.SmartCampusSystemTest</pre>
+    </div>
+</body>
+</html>
