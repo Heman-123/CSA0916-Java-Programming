@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Contribution Write-Up - Smart Campus Asset Recovery System</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 15mm 15mm 15mm 15mm;
+        }
+        body {
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+            font-size: 11pt;
+            line-height: 1.4;
+        }
+        .page {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20mm;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            border-radius: 4px;
+        }
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                min-height: auto;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        .header {
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 15pt;
+            margin: 0;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .header h2 {
+            font-size: 11pt;
+            margin: 3px 0 0 0;
+            color: #475569;
+            font-weight: 600;
+        }
+        .meta-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 16px;
+            font-size: 9.5pt;
+        }
+        .meta-item strong {
+            color: #0f172a;
+        }
+        h3 {
+            font-size: 11pt;
+            color: #1e3a8a;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 3px;
+            margin: 10px 0 6px 0;
+        }
+        h4 {
+            font-size: 10pt;
+            color: #0f172a;
+            margin: 6px 0 2px 0;
+        }
+        p {
+            margin: 0 0 6px 0;
+            font-size: 9.5pt;
+            text-align: justify;
+        }
+        ul {
+            margin: 0 0 6px 0;
+            padding-left: 18px;
+            font-size: 9.5pt;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        .sig-container {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed #94a3b8;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            font-size: 9pt;
+        }
+        .sig-line {
+            margin-top: 30px;
+            border-top: 1px solid #334155;
+            padding-top: 4px;
+            text-align: center;
+        }
+        .btn-print {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px 24px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .btn-print:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-print no-print" onclick="window.print()">🖨️ Print Hard Copy (1-Page Write-Up)</button>
+
+    <div class="page">
+        <div class="header">
+            <h1>Department of Computer Science and Engineering</h1>
+            <h2>CSA09 – Programming in Java | Capstone Individual Contribution Write-Up</h2>
+        </div>
+
+        <div class="meta-box">
+            <div class="meta-item"><strong>Student Name:</strong> Alex Johnson</div>
+            <div class="meta-item"><strong>Register / Roll No:</strong> 2026-CS-0916-A</div>
+            <div class="meta-item"><strong>Slot / Group:</strong> Slot C - Group 04</div>
+            <div class="meta-item"><strong>Course Outcomes:</strong> CO4 (GUI/Applet) & CO5 (JDBC/I/O/Hashing)</div>
+            <div class="meta-item" style="grid-column: span 2;">
+                <strong>Project Title:</strong> Smart Campus Lost & Found and Asset Recovery System using Java GUI, File Handling, Serialization, Hashing and JDBC
+            </div>
+        </div>
+
+        <h3>1. Executive Summary & Assigned Project Role</h3>
+        <p>
+            As the <strong>Lead Security & Backend Architect</strong> for this Capstone project, I was responsible for designing the overall multi-tier architecture, implementing the SHA-256 cryptographic identity verification subsystem with dynamic salting, and engineering the core desktop GUI with the Delegation Event Model. My implementation directly satisfies Course Outcomes <strong>CO4</strong> (AWT components, event handling) and <strong>CO5</strong> (SHA-256 hashing, SQLite JDBC CRUD operations, and multi-tier file persistence).
+        </p>
+
+        <h3>2. Specific Modules, Features & Technical Contributions</h3>
+
+        <h4>A. Cryptographic Authentication Subsystem (<code>HashUtil.java</code> - CO5)</h4>
+        <ul>
+            <li>Engineered salted SHA-256 identity authentication using <code>java.security.MessageDigest</code> and <code>java.security.SecureRandom</code> to safeguard claimant secret PINs and Student IDs.</li>
+            <li>Generated 16-byte cryptographically secure random salts (32 hex characters) to protect against rainbow table precomputation attacks.</li>
+            <li>Implemented constant-time byte string evaluation (<code>constantTimeEquals</code>) to prevent side-channel timing attacks.</li>
+        </ul>
+
+        <h4>B. AWT GUI Architecture & Delegation Event Model (<code>gui.*</code> - CO4)</h4>
+        <ul>
+            <li>Constructed the desktop window container (<code>SmartCampusMainFrame</code>) with <code>MenuBar</code>, status tracking, and <code>CardLayout</code> navigation.</li>
+            <li>Developed input validation panels (<code>LostReportPanel</code>, <code>MatchClaimPanel</code>) using <code>GridBagLayout</code>, handling <code>ActionEvent</code>, <code>ItemEvent</code>, and <code>WindowEvent</code>.</li>
+            <li>Integrated modal dialog alerts and real-time state synchronization across all UI components.</li>
+        </ul>
+
+        <h4>C. Business Logic Facade & Algorithmic Matching Engine (<code>service.*</code>)</h4>
+        <ul>
+            <li>Implemented <code>LostFoundService</code> orchestrating JDBC CRUD operations with <code>ItemDAO</code>, <code>ClaimDAO</code>, <code>AuditDAO</code>, and file stream logging.</li>
+            <li>Formulated the 4-factor heuristic matching engine evaluating category match (40%), keyword overlap (20%), location proximity (20%), and date difference (20%).</li>
+            <li>Created custom domain exceptions (<code>ValidationException</code>, <code>InvalidPINException</code>, <code>DatabaseException</code>).</li>
+        </ul>
+
+        <h3>3. Key Learning Outcomes & SDG Relevance</h3>
+        <p>
+            <strong>Technical Growth:</strong> Gained deep practical competence in Java desktop event models, constant-time cryptography, object serialization, and SQLite JDBC persistence.<br>
+            <strong>SDG Impact:</strong> Contributes directly to <strong>SDG 4 (Quality Education)</strong> by eliminating learning disruption through fast asset recovery, and <strong>SDG 12 (Responsible Consumption)</strong> by reducing campus electronic waste.
+        </p>
+
+        <div class="sig-container">
+            <div>
+                <div class="sig-line">
+                    <strong>Student Signature & Date</strong>
+                </div>
+            </div>
+            <div>
+                <div class="sig-line">
+                    <strong>Faculty Evaluator Signature & Date</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
